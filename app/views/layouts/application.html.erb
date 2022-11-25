@@ -11,8 +11,10 @@
   </head>
 
   <body>
-    <%= link_to "My lists", lists_path, class: "navbar" %>
-    <%= link_to "New list", new_list_path, class: "navbar" %>
+    <div class= "navbar-lewagon">
+      <%= link_to "My lists", lists_path %>
+      <%= link_to "New list", new_list_path %>
+    </div>
     <%= yield %>
   </body>
 </html>
