@@ -1,0 +1,18 @@
+<div class=container>
+  <p><%= @list.name %></p>
+  <p><%= link_to "add a movie", new_list_bookmark_path(@list) %></p>
+  <ul>
+    <% @list.movies.each do |movie| %>
+      <li>
+      <%= movie.title %>:
+      <%= movie.rating %> stars
+      <ul>
+        <% bookmark = Bookmark.find_by(list: @list, movie: movie)  %>
+        <li><%= bookmark.comment %>
+        <li><%= link_to "Delete", bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: "Delete #{bookmark.comment}?"} %></li>
+      </ul>
+      </li>
+    <% end %>
+  </ul>
+  <br>
+</div>
